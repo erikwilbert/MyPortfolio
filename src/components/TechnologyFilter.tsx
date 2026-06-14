@@ -6,14 +6,21 @@ interface TechnologyFilterProps {
   technologies: string[];
   selectedTechnologies: Set<string>;
   onSelectTechnology: (tech: string) => void;
+  onClearAll?: () => void;
 }
 
 export function TechnologyFilter({
   technologies,
   selectedTechnologies,
   onSelectTechnology,
+  onClearAll,
 }: TechnologyFilterProps) {
   const handleClearAll = () => {
+    if (onClearAll) {
+      onClearAll();
+      return;
+    }
+
     selectedTechnologies.forEach((tech) => onSelectTechnology(tech));
   };
 

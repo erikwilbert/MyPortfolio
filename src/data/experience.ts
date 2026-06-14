@@ -7,6 +7,7 @@ export interface Experience {
   description: string;
   highlights: string[];
   technologies: string[];
+  featured: boolean;
 }
 
 export const experiences: Experience[] = [
@@ -23,6 +24,7 @@ export const experiences: Experience[] = [
       "Add achievement or responsibility 3",
     ],
     technologies: ["Technology 1", "Technology 2", "Technology 3"],
+    featured: true,
   },
   {
     id: "exp-2",
@@ -37,6 +39,7 @@ export const experiences: Experience[] = [
       "Add achievement or responsibility 2",
     ],
     technologies: ["Technology 1", "Technology 2"],
+    featured: true,
   },
   {
     id: "exp-3",
@@ -47,5 +50,6 @@ export const experiences: Experience[] = [
     description: "Add a brief description of your internship or role.",
     highlights: ["Add achievement 1", "Add achievement 2"],
     technologies: ["Technology 1"],
+    featured: true,
   },
 ];

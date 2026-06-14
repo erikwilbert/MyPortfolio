@@ -77,6 +77,7 @@ export default function ProjectsPage() {
                   technologies={allTechnologies}
                   selectedTechnologies={selectedTechnologies}
                   onSelectTechnology={handleTechnologySelect}
+                  onClearAll={() => setSelectedTechnologies(new Set())}
                 />
               </div>
             </aside>

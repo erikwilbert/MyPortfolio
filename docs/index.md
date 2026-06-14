@@ -34,7 +34,6 @@ Start with one of these based on your needs:
 - Add projects
 - Add experience entries
 - Add skills
-- Write articles
 - Update social links
 
 ## 📋 Reference & Overview
@@ -119,7 +118,6 @@ Found in `src/data/`:
 - `projects.ts` - Your projects
 - `experience.ts` - Your work history
 - `skills.ts` - Your technologies
-- `articles.ts` - Your blog posts
 - `socials.ts` - Social media links
 
 ## 🔄 Update Workflow

@@ -1,10 +1,11 @@
-# 🚀 CI/CD Quick Start - Deploy in 5 Minutes
+# Vercel Quick Start
 
-Your portfolio has **automated CI/CD ready for Vercel**. Here's the fastest path to production.
+Use Vercel's native GitHub integration for deployment. No GitHub Actions deploy workflow or Vercel token secrets are needed.
 
-## ⚡ Fastest Path (Recommended)
+## Fastest Path
 
-### 1️⃣ Push to GitHub (2 min)
+### 1. Push to GitHub
+
 ```bash
 git add .
 git commit -m "Initial commit"
@@ -13,97 +14,44 @@ git remote add origin https://github.com/YOUR_USERNAME/portfolio.git
 git push -u origin main
 ```
 
-### 2️⃣ Connect Vercel (3 min)
+### 2. Connect Vercel
+
 1. Go to https://vercel.com/new
-2. Click "Select GitHub Account"
-3. Find and click your "portfolio" repo
-4. Click "Import"
+2. Select your GitHub repository
+3. Click "Import"
+4. Keep the detected Next.js settings
 5. Click "Deploy"
-6. **Done!** 🎉 Your site is live
 
-## ✅ What's Included
+## What Is Automated
 
-### GitHub Actions (CI)
-- ✅ Automatic linting on every push/PR
-- ✅ TypeScript type checking
-- ✅ Full project build test
-- ✅ Workflow: `.github/workflows/ci.yml`
+### GitHub Actions CI
 
-### Vercel (CD)
-- ✅ Auto-deploys on push to `main`
-- ✅ Preview URLs on pull requests
-- ✅ Automatic SSL certificates
-- ✅ Global CDN
-- ✅ Edge Functions ready
+- Runs linting on push and pull requests
+- Runs TypeScript checks
+- Runs a production build test
+- Workflow: `.github/workflows/ci.yml`
 
-### Configuration Files
-- ✅ `vercel.json` - Vercel settings
-- ✅ `.vercelignore` - Ignore patterns
-- ✅ `.github/workflows/ci.yml` - CI pipeline
-- ✅ `.github/workflows/deploy.yml` - Optional manual deploy
+### Vercel Deployment
 
-## 📋 What Happens Automatically
+- Deploys production on push to `main`
+- Creates preview deployments for pull requests
+- Handles build logs, SSL, CDN, and rollbacks from Vercel
 
-```
-You push code to GitHub main branch
-         ↓
-GitHub Actions runs CI (lint, type-check, build)
-         ↓
-If CI passes, Vercel builds and deploys
-         ↓
-Your site updates automatically 🎉
-```
-
-## 🔄 Typical Workflow
+## Typical Workflow
 
 1. Make changes locally
-2. Test: `npm run dev`
-3. Build: `npm run build`
-4. Commit: `git commit -m "description"`
-5. Push: `git push`
-6. Vercel automatically deploys ✓
+2. Run `npm run lint`
+3. Run `npm run build`
+4. Commit and push
+5. Vercel automatically deploys from GitHub
 
-## 🛑 If CI Fails
+## Configuration Files
 
-GitHub Actions will:
-- Show ❌ in your PR
-- Prevent merging (optional)
-- Show detailed error logs
+- `vercel.json` - Vercel settings
+- `.vercelignore` - Files ignored by Vercel
+- `.github/workflows/ci.yml` - CI checks only
 
-**How to fix:**
-1. Check error message in GitHub Actions
-2. Run locally: `npm run lint` and `npm run build`
-3. Fix errors
-4. Push again
+## Need Help?
 
-## 📊 Monitor Your Deployments
-
-### In Vercel Dashboard:
-- View all deployments
-- Check build logs
-- Monitor performance
-- View analytics
-
-### In GitHub:
-- Click "Actions" tab to see CI runs
-- View test results
-- Check build status
-
-## 🎯 Next Steps
-
-1. ✅ Push to GitHub
-2. ✅ Connect to Vercel
-3. ✅ Add custom domain (optional)
-4. ✅ Update portfolio data in `src/data/`
-5. ✅ Push changes - auto-deploys! 
-
-## 🆘 Need Help?
-
-See detailed guides:
-- [CI_CD_SETUP.md](CI_CD_SETUP.md) - Full setup details
-- [DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md) - Step-by-step checklist
-- [PORTFOLIO_GUIDE.md](PORTFOLIO_GUIDE.md) - How to customize content
-
----
-
-**Your CI/CD is ready!** Just push to GitHub and Vercel handles the rest. 🚀
+- [CI + Vercel Deployment Guide](CI_CD_SETUP.md)
+- [Deployment Checklist](DEPLOYMENT_CHECKLIST.md)

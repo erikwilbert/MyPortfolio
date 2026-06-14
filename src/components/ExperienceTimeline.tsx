@@ -9,6 +9,7 @@ interface ExperienceTimelineProps {
   endDate: string | null;
   description: string;
   highlights: string[];
+  technologies?: string[];
 }
 
 export function ExperienceTimeline({
@@ -18,6 +19,7 @@ export function ExperienceTimeline({
   endDate,
   description,
   highlights,
+  technologies = [],
 }: ExperienceTimelineProps) {
   const formatDate = (date: string) => {
     const [year, month] = date.split("-");
@@ -35,10 +37,8 @@ export function ExperienceTimeline({
       viewport={{ once: true }}
       className="relative border-l-2 border-zinc-200 py-8 pl-8 dark:border-zinc-800"
     >
-      {/* Timeline dot */}
       <div className="absolute left-[-9px] top-9 h-4 w-4 rounded-full bg-zinc-900 dark:bg-white" />
 
-      {/* Content */}
       <div>
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
           <div>
@@ -51,8 +51,7 @@ export function ExperienceTimeline({
           </div>
           <p className="mt-1 text-sm font-medium text-zinc-500 dark:text-zinc-500 sm:mt-0">
             {formatDate(startDate)}
-            {endDate && ` – ${formatDate(endDate)}`}
-            {!endDate && " – Present"}
+            {endDate ? ` - ${formatDate(endDate)}` : " - Present"}
           </p>
         </div>
 
@@ -60,16 +59,28 @@ export function ExperienceTimeline({
           {description}
         </p>
 
-        {/* Highlights */}
-        {highlights && highlights.length > 0 && (
+        {highlights.length > 0 && (
           <ul className="mt-3 space-y-1 text-sm text-zinc-600 dark:text-zinc-400">
-            {highlights.map((highlight, idx) => (
-              <li key={idx} className="flex items-start">
-                <span className="mr-2 text-zinc-400 dark:text-zinc-600">•</span>
+            {highlights.map((highlight) => (
+              <li key={highlight} className="flex items-start">
+                <span className="mr-2 text-zinc-400 dark:text-zinc-600">-</span>
                 <span>{highlight}</span>
               </li>
             ))}
           </ul>
+        )}
+
+        {technologies.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {technologies.map((technology) => (
+              <span
+                key={technology}
+                className="inline-block rounded-full bg-zinc-100 px-2.5 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300"
+              >
+                {technology}
+              </span>
+            ))}
+          </div>
         )}
       </div>
     </motion.div>

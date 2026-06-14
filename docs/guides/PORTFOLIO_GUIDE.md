@@ -1,114 +1,89 @@
-# Modern Portfolio Website - Complete Setup
+# Portfolio Customization Guide
 
-Your modern, production-ready portfolio website has been successfully built! This is a fully functional, responsive portfolio with dark mode, animations, and a clean architecture.
+This portfolio is data-driven. Most content changes only require editing files in `src/data/`, then committing and pushing.
 
-## ✨ Features
-
-### Design & UX
-- **Dark Mode Default** - Professional dark theme for software engineers
-- **Responsive Design** - Works seamlessly on desktop, tablet, and mobile
-- **Smooth Animations** - Framer Motion animations throughout
-- **Modern Typography** - Professional fonts with excellent hierarchy
-- **Clean UI** - Minimal, professional aesthetic with careful spacing
-
-### Pages Built
+## Pages
 
 1. **Home Page** (`/`)
-   - Hero section with CTA buttons
+   - Hero section
    - About section
-   - Skills & Technologies organized by category
-   - Featured projects showcase
-   - Experience timeline
-   - Latest articles preview
+   - Skills grouped by category
+   - Featured projects
+   - Featured experience timeline
    - Contact section
 
 2. **Projects Page** (`/projects`)
-   - Search functionality
-   - Technology filter system
-   - Responsive project grid
-   - Project count display
-   - Empty state handling
+   - Search projects
+   - Filter by technology
+   - Project cards with links
 
 3. **Project Detail Page** (`/projects/[slug]`)
-   - Project overview
-   - Features list
-   - Architecture explanation
-   - Challenges faced
+   - Overview
+   - Feature list
+   - Architecture
+   - Challenges
    - Lessons learned
-   - Technologies sidebar
-   - Project links (GitHub, Live demo)
 
-4. **Articles Page** (`/articles`)
-   - Search articles
-   - Tag-based filtering
-   - Article cards with reading time
-   - Date and metadata
-   - Tag cloud
+4. **Skills Page** (`/skills`)
+   - Search skills
+   - Filter by category
+   - Filter by proficiency
+   - Skills grouped by category
 
-5. **Article Detail Page** (`/articles/[slug]`)
-   - Formatted article content
-   - Reading time
-   - Publication date
-   - Tags with links
-   - Navigation back to articles
+5. **Experiences Page** (`/experiences`)
+   - Search roles, companies, highlights, and tools
+   - Filter by technology
+   - Timeline entries with highlights and technology chips
 
 6. **Resume Page** (`/resume`)
    - Professional summary
    - Experience timeline
-   - Key projects showcase
-   - Education section
-   - Achievements & awards
-   - Core competencies sidebar
-   - PDF download button
+   - Key projects
+   - Education
+   - Achievements
+   - Core competencies
 
-## 📁 Project Structure
+## Project Structure
 
-```
+```text
 src/
 ├── app/
-│   ├── layout.tsx              # Root layout with Navbar & Footer
-│   ├── page.tsx                # Home page
-│   ├── globals.css             # Global styles
+│   ├── layout.tsx
+│   ├── page.tsx
 │   ├── projects/
-│   │   ├── page.tsx            # Projects listing page
+│   │   ├── page.tsx
 │   │   └── [slug]/
-│   │       └── page.tsx        # Project detail page
-│   ├── articles/
-│   │   ├── page.tsx            # Articles listing page
-│   │   └── [slug]/
-│   │       └── page.tsx        # Article detail page
+│   │       └── page.tsx
+│   ├── skills/
+│   │   └── page.tsx
+│   ├── experiences/
+│   │   └── page.tsx
 │   └── resume/
-│       └── page.tsx            # Resume page
-│
+│       └── page.tsx
 ├── components/
-│   ├── Navbar.tsx              # Navigation bar
-│   ├── Footer.tsx              # Footer with links
-│   ├── SectionTitle.tsx        # Section heading component
-│   ├── ProjectCard.tsx         # Project card component
-│   ├── ArticleCard.tsx         # Article card component
-│   ├── SkillBadge.tsx          # Skill badge with proficiency
-│   ├── ExperienceTimeline.tsx  # Experience timeline item
-│   ├── ContactCard.tsx         # Contact CTA card
-│   ├── SearchBar.tsx           # Search input component
-│   ├── TechnologyFilter.tsx    # Technology filter buttons
-│   └── index.ts                # Component exports
-│
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   ├── SectionTitle.tsx
+│   ├── ProjectCard.tsx
+│   ├── SkillBadge.tsx
+│   ├── ExperienceTimeline.tsx
+│   ├── ContactCard.tsx
+│   ├── SearchBar.tsx
+│   └── TechnologyFilter.tsx
 ├── data/
-│   ├── profile.ts              # Profile information
-│   ├── projects.ts             # Projects data
-│   ├── experience.ts           # Experience/work history
-│   ├── skills.ts               # Skills & technologies
-│   ├── articles.ts             # Blog articles
-│   └── socials.ts              # Social media links
-│
+│   ├── profile.ts
+│   ├── projects.ts
+│   ├── experience.ts
+│   ├── skills.ts
+│   └── socials.ts
 └── lib/
-    └── utils.ts                # Utility functions
+    └── utils.ts
 ```
 
-## 🎨 Customization Guide
+## Edit Profile
 
-### Edit Profile Information
 Edit `src/data/profile.ts`:
+
 ```typescript
 export const profile = {
   name: "Your Name",
@@ -123,21 +98,23 @@ export const profile = {
 };
 ```
 
-### Add Projects
-Edit `src/data/projects.ts` and add new project objects:
+## Add Projects
+
+Edit `src/data/projects.ts`:
+
 ```typescript
 {
   id: "unique-id",
   slug: "project-slug",
   title: "Project Title",
-  description: "Short description",
-  shortDescription: "Very short",
+  description: "Full project description",
+  shortDescription: "Short project summary",
   technologies: ["Tech1", "Tech2"],
   githubUrl: "https://github.com/...",
   liveUrl: "https://project.com",
   image: "/project-image.png",
   featured: true,
-  overview: "Detailed overview",
+  overview: "Project overview",
   features: ["Feature 1", "Feature 2"],
   architecture: "Architecture details",
   challenges: "Challenges faced",
@@ -145,23 +122,28 @@ Edit `src/data/projects.ts` and add new project objects:
 }
 ```
 
-### Add Experience
-Edit `src/data/experience.ts`:
+## Add Experiences
+
+Edit `src/data/experience.ts`. The `/experiences` and `/resume` pages show the full list. The home page shows up to 3 entries where `featured` is `true`.
+
 ```typescript
 {
   id: "exp-1",
   company: "Company Name",
   position: "Job Title",
   startDate: "2024-01",
-  endDate: "2024-06", // null for current role
+  endDate: "2024-06", // use null for current role
   description: "Role description",
   highlights: ["Achievement 1", "Achievement 2"],
   technologies: ["Tech1", "Tech2"],
+  featured: true, // show on home page, max 3 featured entries
 }
 ```
 
-### Add Skills
-Edit `src/data/skills.ts`:
+## Add Skills
+
+Edit `src/data/skills.ts`. Add new categories to `skillCategories` so they appear in the UI filters and grouped sections.
+
 ```typescript
 {
   id: "skill-1",
@@ -171,24 +153,19 @@ Edit `src/data/skills.ts`:
 }
 ```
 
-### Add Articles
-Edit `src/data/articles.ts`:
 ```typescript
-{
-  id: "article-1",
-  slug: "article-slug",
-  title: "Article Title",
-  description: "Short description",
-  date: "2024-01-15",
-  readingTime: 5,
-  image: "/article-image.png",
-  tags: ["tag1", "tag2"],
-  content: `# Markdown-like content`, // Multi-line supported
-}
+export const skillCategories = [
+  "Languages",
+  "Backend",
+  "Frontend",
+  "Databases",
+];
 ```
 
-### Update Social Links
+## Update Social Links
+
 Edit `src/data/socials.ts`:
+
 ```typescript
 {
   id: "social-1",
@@ -198,120 +175,19 @@ Edit `src/data/socials.ts`:
 }
 ```
 
-## 🛠 Tech Stack
-
-- **Framework**: Next.js 16 with App Router
-- **Language**: TypeScript (strict mode)
-- **Styling**: Tailwind CSS v4
-- **Animations**: Framer Motion
-- **Components**: Custom built (no external UI library)
-- **Utilities**: clsx, tailwind-merge
-- **Fonts**: Geist (Google Fonts)
-
-## 📦 Available Scripts
+## Available Scripts
 
 ```bash
-# Development server (http://localhost:3000)
 npm run dev
-
-# Production build
 npm run build
-
-# Start production server
 npm start
-
-# Run linter
 npm run lint
 ```
 
-## ✅ What's Included
+## Notes
 
-- ✓ Fully responsive design
-- ✓ Dark mode (default)
-- ✓ Light mode support
-- ✓ Smooth scroll behavior
-- ✓ SEO metadata
-- ✓ TypeScript strict mode
-- ✓ Dynamic routing
-- ✓ Search & filtering
-- ✓ Animation on scroll
-- ✓ Mobile menu
-- ✓ Sticky navigation
-- ✓ Professional typography
-- ✓ Color-coded skill badges
-- ✓ Experience timeline
-- ✓ Article content rendering
-- ✓ Tag system
-- ✓ Reading time estimation
-- ✓ Date formatting
-- ✓ Contact section
-- ✓ Social links
-- ✓ Clean, maintainable code
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
-```bash
-npm i -g vercel
-vercel
-```
-
-### GitHub Pages
-```bash
-npm run build
-# Deploy the .next/static folder
-```
-
-### Other Platforms
-Build and deploy the output of `npm run build`:
-- Netlify
-- AWS Amplify
-- Render
-- Heroku
-
-## 🔧 Customization Tips
-
-1. **Change colors**: Edit Tailwind classes (zinc-900, zinc-600, etc.)
-2. **Add more pages**: Create new folders in `src/app/`
-3. **Update favicon**: Replace `public/favicon.ico`
-4. **Modify fonts**: Edit `src/app/layout.tsx` font imports
-5. **Change animations**: Adjust Framer Motion `variants` in components
-
-## 📝 TypeScript Interfaces
-
-All data structures are fully typed:
-- `Profile`
-- `Project`
-- `Experience`
-- `Skill`
-- `Article`
-- `Social`
-
-## 🎯 Next Steps
-
-1. Replace placeholder data in `src/data/` files
-2. Add your project images to `public/`
-3. Customize colors if desired
-4. Deploy to your preferred platform
-5. Add custom domain (optional)
-6. Set up analytics (optional)
-
-## 📚 Resources
-
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS](https://tailwindcss.com)
-- [Framer Motion](https://www.framer.com/motion)
-- [TypeScript](https://www.typescriptlang.org)
-
-## 💡 Tips
-
-- All content comes from local data files - easy to update anytime
-- Search and filtering are fully client-side
-- No database required
-- No authentication required
-- Static site generation ready
-- Production builds are optimized and fast
-
----
-
-**Your portfolio is ready to customize and deploy!** Start by editing the data files in `src/data/` to add your real information.
+- All portfolio content lives in local data files.
+- Search and filtering are client-side.
+- No database is required.
+- Project detail pages are generated from each project `slug`.
+- Skills and experiences are intentionally simple to add by editing one object per entry.

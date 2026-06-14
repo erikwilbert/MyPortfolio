@@ -6,7 +6,6 @@ import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
 import { experiences } from "@/data/experience";
 import { skills, skillCategories } from "@/data/skills";
-import { articles } from "@/data/articles";
 import { SectionTitle } from "@/components/SectionTitle";
 import { ProjectCard } from "@/components/ProjectCard";
 import { SkillBadge } from "@/components/SkillBadge";
@@ -24,9 +23,12 @@ const container = {
 };
 
 export default function Home() {
+  const featuredExperiences = experiences
+    .filter((experience) => experience.featured)
+    .slice(0, 3);
+
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
       <section className="border-b border-zinc-200 dark:border-zinc-800">
         <div className="mx-auto max-w-4xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
           <motion.div
@@ -58,18 +60,17 @@ export default function Home() {
               >
                 View My Projects
               </Link>
-              <a
-                href={`mailto:${profile.email}`}
+              <Link
+                href="#contact"
                 className="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-6 py-3 font-medium text-zinc-900 transition-all hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950 dark:text-white dark:hover:bg-zinc-900"
               >
                 Get in touch
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* About Section */}
       <section className="border-b border-zinc-200 dark:border-zinc-800">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           <SectionTitle title="About Me" />
@@ -85,13 +86,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills Section */}
       <section className="border-b border-zinc-200 dark:border-zinc-800">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <SectionTitle
-            title="Skills & Technologies"
-            subtitle="Technologies and tools I work with"
-          />
+          <div className="flex items-center justify-between gap-4">
+            <SectionTitle
+              title="Skills & Technologies"
+              subtitle="Technologies and tools I work with"
+            />
+            <Link
+              href="/skills"
+              className="shrink-0 text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+            >
+              View all
+            </Link>
+          </div>
 
           <motion.div
             initial="hidden"
@@ -122,16 +130,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Projects Section */}
       <section className="border-b border-zinc-200 dark:border-zinc-800">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-4">
             <SectionTitle title="Featured Projects" />
             <Link
               href="/projects"
-              className="text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+              className="shrink-0 text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
             >
-              View all →
+              View all
             </Link>
           </div>
 
@@ -143,7 +150,7 @@ export default function Home() {
             className="mt-12 grid gap-6 md:grid-cols-3"
           >
             {projects
-              .filter((p) => p.featured)
+              .filter((project) => project.featured)
               .map((project) => (
                 <ProjectCard key={project.id} {...project} />
               ))}
@@ -151,62 +158,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Experience Section */}
       <section className="border-b border-zinc-200 dark:border-zinc-800">
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <SectionTitle title="Experience" />
+          <div className="flex items-center justify-between gap-4">
+            <SectionTitle title="Experience" />
+            <Link
+              href="/experiences"
+              className="shrink-0 text-sm font-medium text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+            >
+              View all
+            </Link>
+          </div>
 
           <div className="mt-12 space-y-8">
-            {experiences.map((exp) => (
-              <ExperienceTimeline key={exp.id} {...exp} />
+            {featuredExperiences.map((experience) => (
+              <ExperienceTimeline key={experience.id} {...experience} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Featured Skills Section */}
-      <section className="border-b border-zinc-200 dark:border-zinc-800">
-        <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <SectionTitle title="Featured Skills" subtitle="Technologies I specialize in" />
-
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-            variants={container}
-            className="mt-12 grid gap-8 md:grid-cols-2"
-          >
-            {skillCategories.map((category) => (
-              <motion.div
-                key={category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-                className="rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950"
-              >
-                <h3 className="font-semibold text-zinc-900 dark:text-white">
-                  {category}
-                </h3>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {skills
-                    .filter((skill) => skill.category === category)
-                    .map((skill) => (
-                      <SkillBadge
-                        key={skill.id}
-                        skill={skill.name}
-                        proficiency={skill.proficiency}
-                      />
-                    ))}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="border-b border-zinc-200 dark:border-zinc-800">
+      <section
+        id="contact"
+        className="scroll-mt-20 border-b border-zinc-200 dark:border-zinc-800"
+      >
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           <SectionTitle title="Get In Touch" subtitle="I'd love to hear from you" />
           <motion.div

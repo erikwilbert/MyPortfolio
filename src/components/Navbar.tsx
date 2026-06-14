@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 
 const navItems = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
-  { label: "Articles", href: "/articles" },
+  { label: "Skills", href: "/skills" },
+  { label: "Experiences", href: "/experiences" },
   { label: "Resume", href: "/resume" },
 ];
 

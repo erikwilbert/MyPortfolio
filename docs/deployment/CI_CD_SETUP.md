@@ -1,4 +1,4 @@
-# CI/CD Setup Guide
+# CI + Vercel Deployment Guide
 
 ## Quick Start
 
@@ -18,7 +18,7 @@
 - ✅ Environment variables management
 - ✅ Analytics and monitoring
 
-### 2. GitHub Actions CI/CD
+### 2. GitHub Actions CI
 
 This repo includes GitHub Actions workflows for continuous integration:
 
@@ -52,6 +52,7 @@ Feature Branch → Create PR → GitHub Actions runs CI → Code Review → Merg
 - Merge to `main` branch
 - Vercel automatically builds and deploys
 - Deploy to production takes ~2-3 minutes
+- No GitHub Actions deploy workflow is needed when Vercel is connected to GitHub
 
 ## Setup Instructions
 
@@ -130,11 +131,6 @@ NEXT_PUBLIC_SITE_URL=https://yoursite.com
 
 ### Automatic Deployments
 Already configured! Every push to `main` auto-deploys.
-
-### Scheduled Deployments
-Vercel doesn't support scheduled deployments, but you can:
-- Manually redeploy from dashboard
-- Use GitHub Actions for scheduled rebuilds
 
 ## Performance Tips
 

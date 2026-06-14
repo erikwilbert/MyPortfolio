@@ -5,9 +5,7 @@ import { profile } from "@/data/profile";
 import { experiences } from "@/data/experience";
 import { skills, skillCategories } from "@/data/skills";
 import { projects } from "@/data/projects";
-import { SectionTitle } from "@/components/SectionTitle";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
-import { SkillBadge } from "@/components/SkillBadge";
 
 export default function ResumePage() {
   return (

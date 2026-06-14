@@ -41,7 +41,7 @@ export function ContactCard() {
       {/* Contact Information */}
       <div className="rounded-lg border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-950">
         <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">
-          Let's work together
+          Let&apos;s work together
         </h3>
         <p className="mt-2 text-zinc-600 dark:text-zinc-400">
           Interested in collaborating or have a question? Feel free to reach

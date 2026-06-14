@@ -16,7 +16,7 @@ export function Footer() {
               Portfolio
             </h3>
             <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-              A modern portfolio showcasing projects, articles, and experience.
+              A modern portfolio showcasing projects, skills, and experience.
             </p>
           </div>
 
@@ -29,7 +29,8 @@ export function Footer() {
               {[
                 { label: "Home", href: "/" },
                 { label: "Projects", href: "/projects" },
-                { label: "Articles", href: "/articles" },
+                { label: "Skills", href: "/skills" },
+                { label: "Experiences", href: "/experiences" },
                 { label: "Resume", href: "/resume" },
               ].map((link) => (
                 <li key={link.href}>
