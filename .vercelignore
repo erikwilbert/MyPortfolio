@@ -1,0 +1,8 @@
+# Vercel Deployment Configuration
+
+# Automatically skip deployment if only certain files changed
+[build]
+ignore = "git diff --quiet HEAD^ HEAD -- .github README.md PORTFOLIO_GUIDE.md .gitignore"
+
+# Environment variables for Vercel
+# Add your VERCEL_TOKEN as a GitHub secret for automatic deployments
