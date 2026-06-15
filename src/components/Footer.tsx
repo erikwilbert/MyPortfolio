@@ -69,7 +69,7 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 border-t border-zinc-200 pt-8 text-center text-sm text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
-          <p>© {currentYear} Your Name. All rights reserved.</p>
+          <p>© {currentYear} Erik Wilbert. All rights reserved.</p>
         </div>
       </div>
     </footer>
