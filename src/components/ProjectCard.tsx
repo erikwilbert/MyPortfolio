@@ -10,7 +10,6 @@ interface ProjectCardProps {
   title: string;
   description: string;
   technologies: string[];
-  image: string;
   featured?: boolean;
 }
 
@@ -19,7 +18,6 @@ export function ProjectCard({
   title,
   description,
   technologies,
-  image,
   featured = false,
 }: ProjectCardProps) {
   return (
@@ -38,19 +36,6 @@ export function ProjectCard({
             featured && "md:col-span-2"
           )}
         >
-          {/* Image */}
-          <div
-            className={cn(
-              "relative h-48 overflow-hidden bg-zinc-100 dark:bg-zinc-900",
-              featured && "md:h-64"
-            )}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 to-zinc-700 opacity-10 dark:from-zinc-100 dark:to-zinc-300" />
-            <div className="flex h-full items-center justify-center text-center text-sm text-zinc-500 dark:text-zinc-500">
-              {image}
-            </div>
-          </div>
-
           {/* Content */}
           <div className="flex min-h-64 min-w-0 flex-1 flex-col p-6">
             <h3

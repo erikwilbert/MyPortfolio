@@ -19,17 +19,12 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:border-zinc-800 dark:bg-black/95">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
+          {/* Brand */}
           <Link
             href="/"
-            className="flex items-center space-x-2 transition-opacity hover:opacity-75"
+            className="font-semibold tracking-tight text-zinc-900 transition-opacity hover:opacity-75 dark:text-white"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-md bg-zinc-900 dark:bg-zinc-100">
-              <span className="font-bold text-white dark:text-black">Y</span>
-            </div>
-            <span className="font-semibold text-zinc-900 dark:text-white">
-              Portfolio
-            </span>
+            MyPortfolio
           </Link>
 
           {/* Desktop Navigation */}

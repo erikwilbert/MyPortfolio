@@ -20,7 +20,7 @@ export const experiences: Experience[] = [
     description:
       "Led the Creative Events Department of KMBUI, overseeing event planning, team coordination, and execution of organizational programs while ensuring effective collaboration across multiple programs.",
     highlights: [
-      "Created the initial structure and framework for the Creative Events Department, defining roles, responsibilities, and processes to ensure efficient event planning and execution.",
+      "Established the department's initial organizational structure, defining roles, responsibilities, and operational workflows.",
       "Managed and coordinated department members to deliver organizational events and initiatives.",
       "Planned events division structure, delegated responsibilities, and monitored project execution to ensure timely completion.",
       "Collaborated with other departments to ensure seamless integration and support for organizational events."
@@ -45,7 +45,6 @@ export const experiences: Experience[] = [
     description:
       "Developed an AI-based computer vision solution as part of a hackathon team, focusing on data preparation, model training, and performance optimization using object detection techniques.",
     highlights: [
-      "Passed the preliminary selection stage in a national-level AI hackathon organized by UGM.",
       "Prepared and processed datasets for computer vision tasks.",
       "Fine-tuned YOLO-based object detection models to address a real-world problem and improve model performance.",
       "Performed hyperparameter tuning and model optimization to enhance accuracy and efficiency."
@@ -71,7 +70,7 @@ export const experiences: Experience[] = [
       "Assisted in the delivery of Operating Systems courses by supporting instruction, assessment, and student learning activities.",
     highlights: [
       "Conducted tutorial and assistance sessions to help students understand operating systems concepts.",
-      "Designed mini quizzes to reinforce course topics.",
+      "Designed mini quizzes and learning materials to reinforce operating systems concepts.",
       "Evaluated assignments and provided feedback to support student learning outcomes."
     ],
     technologies: [
@@ -88,7 +87,7 @@ export const experiences: Experience[] = [
     id: "exp-4",
     company: "Sanghadana Kathina KMBUI 2025",
     position: "Head of Logistics & Security Division",
-    startDate: "2025-06",
+    startDate: "2025-05",
     endDate: "2025-11",
     description:
       "Led the Logistics and Security Division for one of KMBUI's major events, ensuring operational and resource readiness, team coordination, and smooth event execution.",

@@ -21,7 +21,7 @@ export const socials: Social[] = [
   {
     id: "social-3",
     name: "Gmail",
-    url: "mailto:erikwilbert.wen@gmail.com",
+    url: "mailto:erikwilbert.work@gmail.com",
     icon: "gmail",
   }
 ];

@@ -14,7 +14,7 @@ export const profile = {
   "I enjoy working with backend technologies, cloud infrastructure, and modern software engineering practices. My current interests include distributed systems, microservices, DevOps, observability, application security, and designing systems that can scale effectively.",
 
   location: "Indonesia",
-  email: "erikwilbert.wen@gmail.com",
+  email: "erikwilbert.work@gmail.com",
   resumeUrl: assets.documents.resume,
 
   education: [

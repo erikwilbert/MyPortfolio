@@ -45,13 +45,6 @@ export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
             <p className="text-lg text-zinc-600 dark:text-zinc-400">
               {project.description}
             </p>
-
-            {/* Project Image */}
-            <div className="mt-8 overflow-hidden rounded-lg border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900">
-              <div className="flex aspect-video items-center justify-center text-center text-zinc-500">
-                {project.image}
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>

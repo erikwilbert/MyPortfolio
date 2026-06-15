@@ -3,14 +3,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
-import { socials } from "@/data/socials";
-
-const contactSocials = socials.filter((social) =>
-  ["github", "linkedin"].includes(social.icon.toLowerCase())
-);
-
-const formatSocialUrl = (url: string) =>
-  url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
 export function ContactCard() {
   const [formData, setFormData] = useState({
@@ -19,7 +11,6 @@ export function ContactCard() {
     subject: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -28,14 +19,27 @@ export function ContactCard() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    // Form functionality to be implemented
-    console.log("Form data:", formData);
-    // TODO: Implement actual form submission
-    setIsSubmitting(false);
-    setFormData({ name: "", email: "", subject: "", message: "" });
+
+    const params = new URLSearchParams({
+      view: "cm",
+      fs: "1",
+      to: profile.email,
+      su: formData.subject,
+      body: [
+        formData.message,
+        "",
+        `From: ${formData.name}`,
+        `Email: ${formData.email}`,
+      ].join("\n"),
+    });
+
+    window.open(
+      `https://mail.google.com/mail/?${params.toString()}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   return (
@@ -137,11 +141,13 @@ export function ContactCard() {
           {/* Submit Button */}
           <button
             type="submit"
-            disabled={isSubmitting}
-            className="w-full rounded-lg bg-zinc-900 px-6 py-2 font-medium text-white transition-all hover:bg-zinc-800 disabled:opacity-50 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
+            className="w-full rounded-lg bg-zinc-900 px-6 py-2 font-medium text-white transition-all hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-200"
           >
-            {isSubmitting ? "Sending..." : "Send Message"}
+            Continue to Gmail
           </button>
+          <p className="text-center text-xs text-zinc-500">
+            Opens Gmail with your message ready to review and send.
+          </p>
         </form>
       </div>
     </motion.div>
