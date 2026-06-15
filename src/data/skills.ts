@@ -8,111 +8,135 @@ export interface Skill {
 export const skills: Skill[] = [
   // Languages
   {
-    id: "skill-1",
+    id: "skill-1a",
     name: "Java",
     category: "Languages",
     proficiency: "expert",
   },
   {
-    id: "skill-2",
+    id: "skill-1b",
     name: "Python",
     category: "Languages",
-    proficiency: "advanced",
+    proficiency: "expert",
   },
   {
-    id: "skill-3",
+    id: "skill-1c",
     name: "JavaScript",
     category: "Languages",
-    proficiency: "advanced",
+    proficiency: "intermediate",
   },
   {
-    id: "skill-3b",
+    id: "skill-1d",
     name: "TypeScript",
     category: "Languages",
+    proficiency: "intermediate",
+  },
+  {
+    id: "skill-1e",
+    name: "SQL",
+    category: "Languages",
     proficiency: "advanced",
   },
   {
-    id: "skill-3c",
-    name: "SQL",
+    id: "skill-1f",
+    name: "Dart",
     category: "Languages",
-    proficiency: "expert",
+    proficiency: "intermediate",
+  },
+  {
+    id: "skill-1g",
+    name: "Rust",
+    category: "Languages",
+    proficiency: "intermediate",
   },
 
   // Backend
   {
-    id: "skill-4",
+    id: "skill-2a",
     name: "Spring Boot",
     category: "Backend",
     proficiency: "advanced",
   },
   {
-    id: "skill-5",
+    id: "skill-2b",
+    name: "Django",
+    category: "Backend",
+    proficiency: "advanced",
+  },
+  {
+    id: "skill-2c",
+    name: "Express.js",
+    category: "Backend",
+    proficiency: "intermediate",
+  },
+  {
+    id: "skill-2d",
     name: "REST API",
     category: "Backend",
     proficiency: "advanced",
   },
   {
-    id: "skill-6",
+    id: "skill-2e",
     name: "JPA/Hibernate",
     category: "Backend",
-    proficiency: "advanced",
+    proficiency: "intermediate",
   },
 
   // Frontend
   {
-    id: "skill-7",
+    id: "skill-3a",
     name: "React",
     category: "Frontend",
     proficiency: "advanced",
   },
   {
-    id: "skill-8",
+    id: "skill-3b",
     name: "Next.js",
     category: "Frontend",
     proficiency: "advanced",
   },
   {
-    id: "skill-9",
+    id: "skill-3c",
     name: "Tailwind CSS",
     category: "Frontend",
     proficiency: "advanced",
   },
+  {
+    id: "skill-3d",
+    name: "Flutter",
+    category: "Frontend",
+    proficiency: "intermediate",
+  },
 
   // Databases
   {
-    id: "skill-10",
+    id: "skill-4a",
     name: "PostgreSQL",
     category: "Databases",
     proficiency: "advanced",
   },
   {
-    id: "skill-11",
+    id: "skill-4b",
     name: "MySQL",
-    category: "Databases",
-    proficiency: "advanced",
-  },
-  {
-    id: "skill-12",
-    name: "MongoDB",
     category: "Databases",
     proficiency: "intermediate",
   },
 
   // DevOps & Cloud
   {
-    id: "skill-13",
+    id: "skill-5a",
     name: "Docker",
     category: "DevOps & Cloud",
-    proficiency: "advanced",
+    proficiency: "intermediate",
   },
   {
-    id: "skill-14",
+    id: "skill-5b",
     name: "AWS EC2",
     category: "DevOps & Cloud",
-    proficiency: "advanced",
+    proficiency: "intermediate",
   },
   {
-    id: "skill-15",
+    id: "skill-5c",
     name: "GitHub Actions",
     category: "DevOps & Cloud",
     proficiency: "advanced",
@@ -120,13 +144,13 @@ export const skills: Skill[] = [
 
   // Monitoring
   {
-    id: "skill-16",
+    id: "skill-6a",
     name: "Grafana",
     category: "Monitoring",
     proficiency: "intermediate",
   },
   {
-    id: "skill-17",
+    id: "skill-6b",
     name: "Prometheus",
     category: "Monitoring",
     proficiency: "intermediate",

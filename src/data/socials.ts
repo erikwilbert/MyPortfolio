@@ -9,25 +9,19 @@ export const socials: Social[] = [
   {
     id: "social-1",
     name: "GitHub",
-    url: "https://github.com",
+    url: "https://github.com/erikwilbert",
     icon: "github",
   },
   {
     id: "social-2",
     name: "LinkedIn",
-    url: "https://linkedin.com",
+    url: "https://linkedin.com/in/erik-wilbert-4711ab330/",
     icon: "linkedin",
   },
   {
     id: "social-3",
-    name: "Twitter",
-    url: "https://twitter.com",
-    icon: "twitter",
-  },
-  {
-    id: "social-4",
-    name: "Email",
-    url: "mailto:your.email@example.com",
-    icon: "mail",
-  },
+    name: "Gmail",
+    url: "mailto:erikwilbert.wen@gmail.com",
+    icon: "gmail",
+  }
 ];

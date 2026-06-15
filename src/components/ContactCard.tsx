@@ -3,6 +3,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
+import { socials } from "@/data/socials";
+
+const contactSocials = socials.filter((social) =>
+  ["github", "linkedin"].includes(social.icon.toLowerCase())
+);
+
+const formatSocialUrl = (url: string) =>
+  url.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
 export function ContactCard() {
   const [formData, setFormData] = useState({
@@ -38,54 +46,6 @@ export function ContactCard() {
       viewport={{ once: true }}
       className="space-y-8"
     >
-      {/* Contact Information */}
-      <div className="rounded-lg border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-950">
-        <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">
-          Let&apos;s work together
-        </h3>
-        <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-          Interested in collaborating or have a question? Feel free to reach
-          out through any of these channels.
-        </p>
-
-        <div className="mt-8 space-y-4">
-          {/* Email */}
-          <div>
-            <h4 className="text-sm font-semibold text-zinc-900 dark:text-white">
-              Email
-            </h4>
-            <a
-              href={`mailto:${profile.email}`}
-              className="mt-2 inline-flex items-center text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
-            >
-              <span className="inline-block h-1 w-1 rounded-full bg-zinc-900 dark:bg-white" />
-              <span className="ml-2">{profile.email}</span>
-            </a>
-          </div>
-
-          {/* LinkedIn */}
-          <div>
-            <h4 className="text-sm font-semibold text-zinc-900 dark:text-white">
-              LinkedIn
-            </h4>
-            <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-              <span className="inline-block h-1 w-1 rounded-full bg-zinc-900 dark:bg-white" />
-              <span className="ml-2">linkedin.com/in/yourprofile</span>
-            </p>
-          </div>
-
-          {/* GitHub */}
-          <div>
-            <h4 className="text-sm font-semibold text-zinc-900 dark:text-white">
-              GitHub
-            </h4>
-            <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-              <span className="inline-block h-1 w-1 rounded-full bg-zinc-900 dark:bg-white" />
-              <span className="ml-2">github.com/yourprofile</span>
-            </p>
-          </div>
-        </div>
-      </div>
 
       {/* Contact Form */}
       <div className="rounded-lg border border-zinc-200 bg-white p-8 dark:border-zinc-800 dark:bg-zinc-950">
