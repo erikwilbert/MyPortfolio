@@ -6,4 +6,3 @@ export { SkillBadge } from "./SkillBadge";
 export { ExperienceTimeline } from "./ExperienceTimeline";
 export { ContactCard } from "./ContactCard";
 export { SearchBar } from "./SearchBar";
-export { TechnologyFilter } from "./TechnologyFilter";

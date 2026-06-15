@@ -1,3 +1,5 @@
+import { assets } from "@/data/assets";
+
 export interface Project {
   id: string;
   slug: string;
@@ -19,8 +21,8 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "project-1",
-    slug: "developer-portfolio",
-    title: "Developer Portfolio Website",
+    slug: "my-portfolio",
+    title: "My Portfolio Website",
     description:
       "A modern personal portfolio website built to showcase projects, technical skills, and professional experience. Designed with a strong focus on performance, responsiveness, maintainability, and clean user experience.",
     shortDescription:
@@ -33,7 +35,7 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/erikwilbert/MyPortfolio",
     liveUrl: "#",
-    image: "/portfolio.png",
+    image: assets.projects.myPortfolio,
     featured: true,
     overview:
       "I built this portfolio to create a central place for showcasing my software engineering projects, technical skills, and career journey. The website serves as both a professional portfolio and a playground for experimenting with modern frontend development practices.",
@@ -78,7 +80,7 @@ export const projects: Project[] = [
 
     githubUrl: "https://github.com/advprog-2026-B16-project/B16-JSON-backend",
     liveUrl: "#",
-    image: "/json-platform.png",
+    image: assets.projects.jsonPlatform,
     featured: true,
 
     overview:
@@ -121,8 +123,8 @@ export const projects: Project[] = [
     ],
     githubUrl: "https://github.com/erikwilbert/discord-bot-logiskem-reaction",
     liveUrl: "#",
-    image: "/discord-bot.png",
-    featured: false,
+    image: assets.projects.discordBot,
+    featured: true,
     overview:
       "The organization relied heavily on Discord for internal communication, but task assignments and status updates were often difficult to track. To improve visibility and reduce manual follow-ups, I developed a Discord bot that automatically adds workflow reactions to messages, allowing members to quickly communicate whether a task was accepted, completed, or still in progress.",
     features: [

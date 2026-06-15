@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
-import { experiences } from "@/data/experience";
+import { experiences, sortExperiencesByLatest } from "@/data/experience";
 import { skills, skillCategories } from "@/data/skills";
 import { projects } from "@/data/projects";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
@@ -72,7 +72,7 @@ export default function ResumePage() {
                   Experience
                 </h2>
                 <div className="mt-8 space-y-8">
-                  {experiences.map((exp) => (
+                  {sortExperiencesByLatest(experiences).map((exp) => (
                     <ExperienceTimeline key={exp.id} {...exp} />
                   ))}
                 </div>
@@ -129,48 +129,43 @@ export default function ResumePage() {
                 <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
                   Education
                 </h2>
-                <div className="mt-6 rounded-lg border border-zinc-200 p-4 dark:border-zinc-800">
-                  <h3 className="font-semibold text-zinc-900 dark:text-white">
-                    Add your degree name here
-                  </h3>
-                  <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-                    Add your university/institution name
-                  </p>
-                  <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                    2020 - 2024
-                  </p>
-                  <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-                    Add details about your education, achievements, or relevant
-                    coursework here.
-                  </p>
+                <div className="mt-6 space-y-4">
+                  {profile.education.map((education) => (
+                    <div
+                      key={`${education.institution}-${education.degree}`}
+                      className="rounded-lg border border-zinc-200 p-4 dark:border-zinc-800"
+                    >
+                      <h3 className="font-semibold text-zinc-900 dark:text-white">
+                        {education.degree}
+                      </h3>
+                      <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
+                        {education.institution}
+                      </p>
+                      <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                        {education.startYear} - {education.endYear}
+                      </p>
+                      {education.relatedCourses.length > 0 && (
+                        <div className="mt-3">
+                          <p className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                            Related Coursework
+                          </p>
+                          <div className="mt-2 flex flex-wrap gap-2">
+                            {education.relatedCourses.map((course) => (
+                              <span
+                                key={course}
+                                className="rounded-full bg-zinc-100 px-2.5 py-1 text-xs text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300"
+                              >
+                                {course}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </motion.div>
 
-              {/* Achievements */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
-                  Achievements & Awards
-                </h2>
-                <ul className="mt-4 space-y-2">
-                  <li className="flex items-start text-zinc-600 dark:text-zinc-400">
-                    <span className="mr-3 text-zinc-900 dark:text-white">•</span>
-                    <span>Add achievement 1</span>
-                  </li>
-                  <li className="flex items-start text-zinc-600 dark:text-zinc-400">
-                    <span className="mr-3 text-zinc-900 dark:text-white">•</span>
-                    <span>Add achievement 2</span>
-                  </li>
-                  <li className="flex items-start text-zinc-600 dark:text-zinc-400">
-                    <span className="mr-3 text-zinc-900 dark:text-white">•</span>
-                    <span>Add achievement 3</span>
-                  </li>
-                </ul>
-              </motion.div>
             </div>
 
             {/* Sidebar */}

@@ -2,31 +2,23 @@
 
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { experiences } from "@/data/experience";
+import {
+  experiences,
+  sortExperiencesByLatest,
+} from "@/data/experience";
 import { ExperienceTimeline } from "@/components/ExperienceTimeline";
 import { SearchBar } from "@/components/SearchBar";
 import { SectionTitle } from "@/components/SectionTitle";
-import { TechnologyFilter } from "@/components/TechnologyFilter";
 
 export default function ExperiencesPage() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedTechnologies, setSelectedTechnologies] = useState<Set<string>>(
-    new Set()
-  );
-
-  const allTechnologies = useMemo(() => {
-    const technologies = new Set<string>();
-    experiences.forEach((experience) => {
-      experience.technologies.forEach((technology) => technologies.add(technology));
-    });
-    return Array.from(technologies).sort();
-  }, []);
 
   const filteredExperiences = useMemo(() => {
-    const normalizedSearch = searchQuery.toLowerCase();
+    const normalizedSearch = searchQuery.trim().toLowerCase();
 
-    return experiences.filter((experience) => {
+    const matchingExperiences = experiences.filter((experience) => {
       const matchesSearch =
+        normalizedSearch.length === 0 ||
         experience.company.toLowerCase().includes(normalizedSearch) ||
         experience.position.toLowerCase().includes(normalizedSearch) ||
         experience.description.toLowerCase().includes(normalizedSearch) ||
@@ -36,25 +28,12 @@ export default function ExperiencesPage() {
         experience.technologies.some((technology) =>
           technology.toLowerCase().includes(normalizedSearch)
         );
-      const matchesTechnology =
-        selectedTechnologies.size === 0 ||
-        experience.technologies.some((technology) =>
-          selectedTechnologies.has(technology)
-        );
 
-      return matchesSearch && matchesTechnology;
+      return matchesSearch;
     });
-  }, [searchQuery, selectedTechnologies]);
 
-  const handleTechnologySelect = (technology: string) => {
-    const nextSelectedTechnologies = new Set(selectedTechnologies);
-    if (nextSelectedTechnologies.has(technology)) {
-      nextSelectedTechnologies.delete(technology);
-    } else {
-      nextSelectedTechnologies.add(technology);
-    }
-    setSelectedTechnologies(nextSelectedTechnologies);
-  };
+    return sortExperiencesByLatest(matchingExperiences);
+  }, [searchQuery]);
 
   return (
     <div className="flex flex-col">
@@ -69,48 +48,38 @@ export default function ExperiencesPage() {
 
       <section>
         <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-4">
-            <aside className="lg:col-span-1">
-              <div className="sticky top-20 space-y-6">
-                <SearchBar
-                  onSearch={setSearchQuery}
-                  placeholder="Search experiences..."
-                />
-                <TechnologyFilter
-                  technologies={allTechnologies}
-                  selectedTechnologies={selectedTechnologies}
-                  onSelectTechnology={handleTechnologySelect}
-                  onClearAll={() => setSelectedTechnologies(new Set())}
-                />
-              </div>
-            </aside>
+          <div className="max-w-md">
+            <SearchBar
+              onSearch={setSearchQuery}
+              placeholder="Search experiences..."
+            />
+          </div>
 
-            <div className="lg:col-span-3">
-              {filteredExperiences.length === 0 ? (
-                <div className="flex flex-col items-center justify-center rounded-lg border border-zinc-200 bg-zinc-50 py-12 dark:border-zinc-800 dark:bg-zinc-950">
-                  <p className="text-center text-zinc-600 dark:text-zinc-400">
-                    No experiences found. Try adjusting your filters.
-                  </p>
+          <div className="mt-8">
+            {filteredExperiences.length === 0 ? (
+              <div className="flex flex-col items-center justify-center rounded-lg border border-zinc-200 bg-zinc-50 py-12 dark:border-zinc-800 dark:bg-zinc-950">
+                <p className="text-center text-zinc-600 dark:text-zinc-400">
+                  No experiences found. Try a different search.
+                </p>
+              </div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className="space-y-4"
+              >
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                  Showing {filteredExperiences.length} experience
+                  {filteredExperiences.length !== 1 ? "s" : ""}
+                </p>
+                <div className="space-y-4">
+                  {filteredExperiences.map((experience) => (
+                    <ExperienceTimeline key={experience.id} {...experience} />
+                  ))}
                 </div>
-              ) : (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className="space-y-4"
-                >
-                  <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                    Showing {filteredExperiences.length} experience
-                    {filteredExperiences.length !== 1 ? "s" : ""}
-                  </p>
-                  <div className="space-y-4">
-                    {filteredExperiences.map((experience) => (
-                      <ExperienceTimeline key={experience.id} {...experience} />
-                    ))}
-                  </div>
-                </motion.div>
-              )}
-            </div>
+              </motion.div>
+            )}
           </div>
         </div>
       </section>

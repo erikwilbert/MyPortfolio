@@ -38,7 +38,7 @@ export default function SkillsPage() {
         <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
           <SectionTitle
             title="Skills"
-            subtitle="Technologies, tools, and strengths grouped for quick editing"
+            subtitle="Skills I have developed through my projects, coursework, and personal learning journey"
           />
         </div>
       </section>

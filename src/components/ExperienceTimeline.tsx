@@ -40,8 +40,8 @@ export function ExperienceTimeline({
       <div className="absolute left-[-9px] top-9 h-4 w-4 rounded-full bg-zinc-900 dark:bg-white" />
 
       <div>
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-          <div>
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
+          <div className="min-w-0">
             <h3 className="font-semibold text-zinc-900 dark:text-white">
               {position}
             </h3>
@@ -49,7 +49,7 @@ export function ExperienceTimeline({
               {company}
             </p>
           </div>
-          <p className="mt-1 text-sm font-medium text-zinc-500 dark:text-zinc-500 sm:mt-0">
+          <p className="shrink-0 whitespace-nowrap text-sm font-medium text-zinc-500 dark:text-zinc-500">
             {formatDate(startDate)}
             {endDate ? ` - ${formatDate(endDate)}` : " - Present"}
           </p>

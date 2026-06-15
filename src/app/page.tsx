@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
-import { experiences } from "@/data/experience";
+import { experiences, sortExperiencesByLatest } from "@/data/experience";
 import { skills, skillCategories } from "@/data/skills";
 import { SectionTitle } from "@/components/SectionTitle";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -23,9 +23,9 @@ const container = {
 };
 
 export default function Home() {
-  const featuredExperiences = experiences
-    .filter((experience) => experience.featured)
-    .slice(0, 3);
+  const featuredExperiences = sortExperiencesByLatest(
+    experiences.filter((experience) => experience.featured)
+  ).slice(0, 3);
 
   return (
     <div className="flex flex-col">

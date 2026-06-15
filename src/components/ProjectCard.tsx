@@ -29,11 +29,12 @@ export function ProjectCard({
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
       whileHover={{ y: -5 }}
+      className="h-full min-w-0"
     >
-      <Link href={`/projects/${slug}`}>
+      <Link href={`/projects/${slug}`} className="block h-full min-w-0">
         <div
           className={cn(
-            "group overflow-hidden rounded-lg border border-zinc-200 bg-white transition-all dark:border-zinc-800 dark:bg-zinc-950",
+            "group flex h-full min-w-0 flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white transition-all dark:border-zinc-800 dark:bg-zinc-950",
             featured && "md:col-span-2"
           )}
         >
@@ -51,20 +52,27 @@ export function ProjectCard({
           </div>
 
           {/* Content */}
-          <div className="flex h-64 flex-col p-6">
-            <h3 className="line-clamp-2 font-semibold text-zinc-900 group-hover:text-zinc-700 dark:text-white dark:group-hover:text-zinc-300">
+          <div className="flex min-h-64 min-w-0 flex-1 flex-col p-6">
+            <h3
+              className="line-clamp-2 break-words font-semibold text-zinc-900 group-hover:text-zinc-700 dark:text-white dark:group-hover:text-zinc-300"
+              title={title}
+            >
               {title}
             </h3>
-            <p className="mt-2 line-clamp-3 flex-1 text-sm text-zinc-600 dark:text-zinc-400">
+            <p
+              className="mt-2 line-clamp-3 break-words text-sm text-zinc-600 dark:text-zinc-400"
+              title={description}
+            >
               {description}
             </p>
 
             {/* Technologies */}
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="mt-auto flex min-w-0 flex-wrap gap-2 pt-4">
               {technologies.slice(0, 3).map((tech) => (
                 <span
                   key={tech}
-                  className="inline-block rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300"
+                  className="max-w-36 truncate rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-700 dark:bg-zinc-900 dark:text-zinc-300"
+                  title={tech}
                 >
                   {tech}
                 </span>

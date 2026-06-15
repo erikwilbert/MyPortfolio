@@ -1,3 +1,5 @@
+import { assets } from "@/data/assets";
+
 export const profile = {
   name: "Erik Wilbert",
   title: "Computer Science Undergraduate",
@@ -13,5 +15,22 @@ export const profile = {
 
   location: "Indonesia",
   email: "erikwilbert.wen@gmail.com",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: assets.documents.resume,
+
+  education: [
+    {
+      degree: "Bachelor of Computer Science",
+      institution: "Universitas Indonesia",
+      startYear: "2024",
+      endYear: "2028",
+      relatedCourses: [
+        "Data Structures and Algorithms",
+        "Web Development",
+        "Advanced Programming",
+        "Database Systems",
+        "Operating Systems",
+        "Data Science & Machine Learning",
+      ],
+    },
+  ],
 };
