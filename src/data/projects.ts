@@ -8,7 +8,6 @@ export interface Project {
   shortDescription: string;
   technologies: string[];
   githubUrl: string;
-  liveUrl: string;
   image: string;
   featured: boolean;
   overview: string;
@@ -34,7 +33,6 @@ export const projects: Project[] = [
       "Tailwind CSS"
     ],
     githubUrl: "https://github.com/erikwilbert/MyPortfolio",
-    liveUrl: "#",
     image: assets.projects.myPortfolio,
     featured: true,
     overview:
@@ -79,7 +77,6 @@ export const projects: Project[] = [
     ],
 
     githubUrl: "https://github.com/advprog-2026-B16-project/B16-JSON-backend",
-    liveUrl: "#",
     image: assets.projects.jsonPlatform,
     featured: true,
 
@@ -122,7 +119,6 @@ export const projects: Project[] = [
       "JavaScript"
     ],
     githubUrl: "https://github.com/erikwilbert/discord-bot-logiskem-reaction",
-    liveUrl: "#",
     image: assets.projects.discordBot,
     featured: true,
     overview:
