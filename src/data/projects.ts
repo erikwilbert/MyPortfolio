@@ -18,7 +18,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "project-3",
+    id: "project-1",
     slug: "developer-portfolio",
     title: "Developer Portfolio Website",
     description:
@@ -31,7 +31,7 @@ export const projects: Project[] = [
       "TypeScript",
       "Tailwind CSS"
     ],
-    githubUrl: "YOUR_GITHUB_URL",
+    githubUrl: "https://github.com/erikwilbert/MyPortfolio",
     liveUrl: "#",
     image: "/portfolio.png",
     featured: true,
